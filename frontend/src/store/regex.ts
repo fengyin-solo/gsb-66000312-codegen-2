@@ -35,7 +35,7 @@ interface StateNode {
   epsilonTransitions: number[]
 }
 
-function buildNFA(pattern: string): { states: StateNode[]; startState: number; acceptStates: number[] } {
+export function buildNFA(pattern: string): { states: StateNode[]; startState: number; acceptStates: number[] } {
   const states: StateNode[] = []
   let stateCounter = 0
   let pos = 0
@@ -208,7 +208,7 @@ function matchTransition(state: StateNode, symbol: string): number[] {
   return results
 }
 
-function runMatch(states: StateNode[], startState: number, input: string): MatchResult {
+export function runMatch(states: StateNode[], startState: number, input: string): MatchResult {
   const steps: MatchStep[] = []
   let backtracks = 0
   let stepIndex = 0
